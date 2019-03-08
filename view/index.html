@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>Exercice tracker</title>
+</head>
+<body>
+    <main class="grid">
+        <header class="header">
+            <h1>Exercice tracker</h1>
+        </header>
+        <div class="new-user">
+            <h2>Create a new user</h2>
+            <span class="link">POST /api/exercise/new-user</span>
+            <form action="/api/exercise/new-user " method="post">
+                <input type="text" name="username" id="username" placeholder="username*">
+                <input type="submit" value="Add user">
+            </form>
+            <p><span class="link">GET /api/exercise/users <a href="/api/exercise/users">list of users</a></span></p>
+        </div>
+        <div class="new-exercise">
+            <h2>Add exercises</h2>
+            <span class="link">POST /api/exercise/add</span>
+            <form action="/api/exercise/add" method="post">
+                <input type="text" name="user-id" id="user-id" placeholder="userId*" >
+                <input type="text" name="description" id="description" placeholder="description*" >
+                <input type="text" name="duration" id="duration" placeholder="duration* (mins)" >
+                <input type="text" name="date" id="date" placeholder="date (yyyy-mm-dd)">
+                <input type="submit" value="Add exercice">
+            </form>
+            <p>GET users's exercise log: <br>
+                <span class="link">GET /api/exercise/log?{userId}&amp;[from]&amp;[to]&amp;[limit]</span></p>
+            <p>{ } = required, [ ] = optional</p>
+            <p>from, to = dates (yyyy-mm-dd); limit = number</p>
+            <p>eg: <a href="/api/exercise/log?userId=1&amp;from=2010-01-20&amp;to=2020-01-01&amp;limit=2">/api/exercise/log?userId=1&amp;from=2010-01-20&amp;to=2020-01-01&amp;limit=2</a></p>
+        </div>
+       
+    </main>
+</body>
+</html>
